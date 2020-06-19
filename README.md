@@ -20,5 +20,6 @@ develAPP (sysdevel,sciedu,entercom,bussiprof)
   Lang (synt-sem): lex (kw-lit-ID-#) + nativ/lib (typ-math-str-io-err-net...)
    [creat] Acc(sp-tm/mbr) Typ(str-clas/scal-comp-Tnew-fnc()) Ref(pnt-arr) ID
    [read] acc-refLit/ΙD [eval] Num(ar-lg-rl) // [upd] Asgn [cntl] Flow(cond-jmp)
+                                                         
 -mach1: translation -> MachineCode: prog.hd-sects-sect.hd      [intermed]
 -mach2: execution -> Elect.state-off: digital>analog>physics     [VHDL]
