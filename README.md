@@ -1,25 +1,27 @@
 # The Software Engineering Pipe
 
+> Computer science is mathematics with finite discrete data instead of infinite numbers.
+> Software engineering is computer science applied on hardware.
+
 This project aims to present the Software Engineering (SE) stages as a piped process, from App conception to bare electrons.  
 
 In SE there are five distinct stages (processes), with six IO-structures piping through each one:  
 
-|Stage| -process>  | Output        | Language     | Processor|  
-|---|:---:         |:---:          |:---:         |:---:     |
-|0| -              | [Application](#application)   |-             |-         |  
+|Stage  | -process>      | Output        | Language     | Processor|  
+|:---:  |:---:           |:---:          |:---:         |:---:     |
+|0      | -              | [Application](#application)|-|-         |  
 |[1](#1)| -requirements> | Specification | natural      | human    |  
-|2| -architecture> | Diagrams      | ADL/UML      | human    |
-|3| -programming>  | SourceCode    | programming  | human    |
-|4| -translation>  | MachineCode   | intermediate | machine  |
-|5| -execution>    | Electr state  | VHDL         | machine  |
+|[2](#2)| -architecture> | Diagrams      | ADL/UML      | human    |
+|[3](#3)| -programming>  | SourceCode    | programming  | human    |
+|[4](#4)| -translation>  | MachineCode   | intermediate | machine  |
+|[5](#5)| -execution>    | Electr state  | VHDL         | machine  |
 
-## Theory
+## Computer Theory
 * Algorithm-function-interface-behavior-verb (computability-complexity)
 * Data-structure-state-attribute-noun (automata-languages, data structures)
+Hint: The name 'Computer science' is wrong as it is not science but theory... 
 
-# Software Enginggring stages inn detail:
-
-## Application
+### Application
 It refers to the primary need to use a computer in the first place.
 Categories:
 * system-development (eg. OS, utilities, compilers ...)
@@ -27,10 +29,10 @@ Categories:
 * entertaiment-communication  (eg. AV stuff messenger ...)
 * bussiness-professional (eg. enterprise, government ...)
 
-### <a name="1"></a>requirements -> Specification
+### <a name="1"></a>1. requirements -> Specification
 do(functional)-be(operational-evolutionary-environmental)
             
-### architecture-design -> Diagrams
+### <a name="2"></a>2. architecture-design -> Diagrams
 simplicity <- structural (eg class-diagram), behavorial (eg. sequence)      
             
   Principles: Module: do-one-thing, one-point-of-thuth  
@@ -53,7 +55,7 @@ simplicity <- structural (eg class-diagram), behavorial (eg. sequence)    
     >Compiler: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
     >Interpreter:
 
-### programm -> SourceCode
+### <a name="3"></a>3. programm -> SourceCode
 readability <- elegant-defensive,error-testing  
 
   Lang (syntax-semantics): lexical (keywords-literals-ID-comments)  
@@ -63,8 +65,8 @@ readability <- elegant-defensive,error-testing
   [read] access-reference Literal/ΙD [eval] Numerical (arithm-logical-relationall) //  
             [update] Assignment [control] Flow(conditional-jump)
 
-### translation -> MachineCode
+### <a name="4"></a>4. translation -> MachineCode
 program header-sections-section header
 
-### execution -> Electronic state
+### <a name="5"></a>5. execution -> Electronic state
 digital -> analog -> physics
