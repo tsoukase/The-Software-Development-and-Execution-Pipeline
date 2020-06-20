@@ -1,11 +1,12 @@
-# The Software Engineering Pipe
+# The Software Development and Execution Pipeline
 
 > Computer science is mathematics with finite discrete data instead of infinite numbers.
 > Software engineering is computer science applied on hardware.
 
-This project aims to present the Software Engineering (SE) stages as a piped process, from App conception to bare electrons.  
+This project aims to present the Software Development (SD) stages as a piped process, from App conception to bare electrons.  
+It extents the Development Lifecycle phases.
 
-In SE there are five distinct stages (processes), with six IO-structures piping through each one:  
+In SD there are five distinct stages (processes), with six IO-structures piping through each one:  
 
 |Stage  | -process>      | Output        | Language     | Processor|  
 |:---:  |:---:           |:---:          |:---:         |:---:     |
@@ -25,16 +26,16 @@ Both succeed each other in that manner: (D) -> (S) -> (D) -> (S) ...
 Computer theory studies them in depth giving them the following names:
 * Data-structure-state-attribute-noun (automata-languages, data structures)  
 * Algorithm-function-interface-behavior-verb (computability-complexity)  
-As you are reading Github you are probably knowledgeable with these name :)   
+As you are reading Github, you are probably knowledgeable with these names :)   
 Hint: The name 'Computer science' is wrong as it is not science ... 
 
 ### Application
 It refers to the primary need to use a computer in the first place.
-Categories:
-* system-development (eg. OS, utilities, compilers ...)
-* scientific-education  (eg. mathematics, scientific, school ...)
-* entertaiment-communication  (eg. AV stuff messenger ...)
-* bussiness-professional (eg. enterprise, government ...)
+Categories (based on application domain):
+* system-development (eg. OS, utilities, network, compilers, GUIs ...)
+* scientific-education  (eg. mathematics, scientific, AI, school ...)
+* entertaiment-communication  (eg. A-V stuff, games, messenger apps ...)
+* bussiness-professional (eg. office, enterprise, manufacturing, government ...)
 
 ### <a name="1"></a>1. requirements -> Specification
 do(functional)-be(operational-evolutionary-environmental)
@@ -65,6 +66,9 @@ simplicity <- structural (eg class-diagram), behavorial (eg. sequence)    
 * Front-end: -preproc>SCode-lexer>Token -parser>AST -semantic>Graph -generator>IRep  
 * Compiler: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
 * Interpreter:
+
+#### Graphics pipeline
+* TODO
 
 ### <a name="3"></a>3. programm -> SourceCode
 readability <- elegant-defensive,error-testing  
