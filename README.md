@@ -7,7 +7,7 @@ In SE there are five distinct stages (processes), with six IO-structures piping 
 |Stage| -process>  | Output        | Language     | Processor|  
 |---|:---:         |:---:          |:---:         |:---:     |
 |0| -              | [Application](#application)   |-             |-         |  
-|[1](#requirements)| -requirements> | Specification | natural      | human    |  
+|[1](#1)| -requirements> | Specification | natural      | human    |  
 |2| -architecture> | Diagrams      | ADL/UML      | human    |
 |3| -programming>  | SourceCode    | programming  | human    |
 |4| -translation>  | MachineCode   | intermediate | machine  |
@@ -27,7 +27,7 @@ Categories:
 * entertaiment-communication  (eg. AV stuff messenger ...)
 * bussiness-professional (eg. enterprise, government ...)
 
-### requirements -> Specification
+### <a name="1"></a>requirements -> Specification
 do(functional)-be(operational-evolutionary-environmental)
             
 ### architecture-design -> Diagrams
