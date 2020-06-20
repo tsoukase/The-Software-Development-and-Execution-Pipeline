@@ -1,12 +1,13 @@
 # The Software Development and Execution Pipeline
 
-> Computer science is mathematics with finite discrete data instead of infinite numbers.
+> Computer science is mathematics with finite discrete data instead of infinite numbers.  
+
 > Software engineering is computer science applied on hardware.
 
 This project aims to present the Software Development (SD) stages as a piped process, from App conception to bare electrons.  
-It extents the Development Lifecycle phases.
+It consists of the classical Development Lifecycle phases (1-3) and the normal execution on hardware (4-5)
 
-In SD there are five distinct stages (processes), with six IO-structures piping through each one:  
+The five distinct stages/phases/processes, with six IO-structures piping through each one, are:  
 
 |Stage  | -process>      | Output        | Language     | Processor|  
 |:---:  |:---:           |:---:          |:---:         |:---:     |
@@ -75,10 +76,15 @@ readability <- elegant-defensive,error-testing
 
 #### Lang (syntax-semantics):
 * lexical (keywords-literals-ID-comments) + native/libs (types-math-strings-IO-error-net...)
-* [creat] Access modifier (space-time/memberof)  
-            Type (string-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
+* [create] Access modifier (space-time/memberof)  
+** Type (string-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
 * [read] access-reference Literal/ΙD [eval] Numerical (arithm-logical-relationall) //  
-            [update] Assignment [control] Flow(conditional-jump)
+** [update] Assignment [control] Flow(conditional-jump)
+
+Notes:
+1. create = declaration
+2. create/read/update = CRU in memory, D = garbage collection
+3. Functional programming discards 'update' and 'control'
 
 ### <a name="4"></a>4. translation -> MachineCode
 program header-sections-section header
