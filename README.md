@@ -45,46 +45,47 @@ do(functional)-be(operational-evolutionary-environmental)
 simplicity <- structural (eg class-diagram), behavorial (eg. sequence)      
 
 #### Principles:
-* Module: do-one-thing, one-point-of-thuth  
-* Dependencies: lowCoupling(interace<-, encapsulation)  
-* Extention: association >> generality (base:derived=1:1)
+* Module: do-one-thing, single-point-of-thuth  
+* Dependencies: low Coupling (interace<-everything, encapsulate-what-changes)  
+* Extention: association (composit) >> generality (inherit), base:derived class=1:1
             
 #### Algοrithms
-* Types: recursive, dynamic programming, backtrack, ...-&-conquer, greedy, brute-force, randomized  
+* Types: recursive, dynamic-prog, backtrack, X-&-conquer, greedy, brute-force, randomized  
 * ML-algorithms: un-supervised:clust-dimension.reduction, SV:classification-regression
-     
+
 #### SW Architecture styles
 * message (async, SOA, event-driven, publish-subscribe, master-slave),  
 * distributed (client-server, p-2-p, broker)  
 * N-tier: Client<>Server: Pres(MV*)<>Logic(μServ)<>Data(no/sqlDB)
 
-#### Computer System
-* {HW: <ProcUnit: AL-Cntrl(Regs)> keyedMemory / blockedStorage / <net>... / <graph-io> Human} -isa/fw-  
+#### Computer System (HW->SW)
+* {HW: <ProcUnit: AL-Cntl(Regs)> keyMemory / blockStorage / <network>... / <graph-IO> Human} -isa/fw-  
 * Kernel: -driver-logical-virtual(buffer/cache): task(page-inode-packet)- Scheduler/IRQ/monit -syscall>  
-* User: LD=/lib /bin/exec -app=/usr -conf=/etc 2>/var/log -iof=/dev ...  
+* User: LD=/lib /bin/exec -app=/usr -conf=/etc 2>/var/log -iof=/dev -home=~/. ...
 
 #### Translation
 * Front-end: -preproc>SCode-lexer>Token -parser>AST -semantic>Graph -generator>IRep  
 * Compiler: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
-* Interpreter:
+* Interpreter: TODO
 
 #### Graphics pipeline
 * TODO
 
-### <a name="3"></a>3. programm -> SourceCode
+### <a name="3"></a>3. programm -> Source Code
 readability <- elegant-defensive,error-testing  
 
-#### Lang (syntax-semantics):
+#### Lang (syntax+semantics):
 * lexical (keywords-literals-ID-comments) + native/libs (types-math-strings-IO-error-net...)
 * [create] Access modifier (space-time/memberof) Type (string-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
 * [read] access-reference Literal/ΙD [eval] Numerical (arithm-logical-relationall) // [update] Assignment [control] Flow(conditional-jump)
 
 Notes:
 1. create = declaration
-2. create/read/update = CRU in memory, D = garbage collection
-3. Functional programming discards 'update' and 'control'
+2. create/read/update = CRU in memory, D = garbage collection!
+3. Functional programming uses only 'create', 'read' and 'eval' and discards 'update' and 'control')
+4. Logic programming uses only 'create' and discards everything else
 
-### <a name="4"></a>4. translation -> MachineCode
+### <a name="4"></a>4. translation -> Machine Code
 program header-sections-section header
 
 ### <a name="5"></a>5. execution -> Electronic state
