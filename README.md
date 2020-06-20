@@ -1,12 +1,12 @@
-# The Software Engineering Stack
+# The Software Engineering Pipe
 
-This project aims to follow the Software Engineering (SE) stages, from App conception to bare electrons.  
+This project aims to present the Software Engineering (SE) stages as a piped process, from App conception to bare electrons.  
 
-There are five distinct stages (processes) in SE, with six IO-structures:  
+In SE there are five distinct stages (processes), with six IO-structures piping through each one:  
 
-|#| -stage>        | Output        | Language     | Processor|  
+|Stage| -process>  | Output        | Language     | Processor|  
 |---|:---:         |:---:          |:---:         |:---:     |
-|0| -              | Application   |-             |-         |  
+|0| -              | [Application](#application)   |-             |-         |  
 |1| -requirements> | Specification | natural      | human    |  
 |2| -architecture> | Diagrams      | ADL/UML      | human    |
 |3| -programming>  | SourceCode    | programming  | human    |
@@ -15,7 +15,7 @@ There are five distinct stages (processes) in SE, with six IO-structures:
 
 In detail:
 
-[Application](#application)
+## Application
 Categories:
 * system-development  
 * scientific-education  
