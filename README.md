@@ -76,10 +76,8 @@ readability <- elegant-defensive,error-testing
 
 #### Lang (syntax-semantics):
 * lexical (keywords-literals-ID-comments) + native/libs (types-math-strings-IO-error-net...)
-* [create] Access modifier (space-time/memberof)  
-** Type (string-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
-* [read] access-reference Literal/ΙD [eval] Numerical (arithm-logical-relationall) //  
-** [update] Assignment [control] Flow(conditional-jump)
+* [create] Access modifier (space-time/memberof) Type (string-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
+* [read] access-reference Literal/ΙD [eval] Numerical (arithm-logical-relationall) // [update] Assignment [control] Flow(conditional-jump)
 
 Notes:
 1. create = declaration
