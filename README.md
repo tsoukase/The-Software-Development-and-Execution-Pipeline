@@ -4,8 +4,9 @@ This project aims to follow the Software Engineering (SE) stages, from App conce
 
 There are five distinct stages (processes) in SE, with six IO-structures:  
 
-|#| -function>     | Application   | Language     | Processor|  
+|#| -stage>        | Output        | Language     | Processor|  
 |---|:---:         |:---:          |:---:         |:---:     |
+|0| -              | Application   |-             |-         |  
 |1| -requirements> | Specification | natural      | human    |  
 |2| -architecture> | Diagrams      | ADL/UML      | human    |
 |3| -programming>  | SourceCode    | programming  | human    |
@@ -14,18 +15,19 @@ There are five distinct stages (processes) in SE, with six IO-structures:
 
 In detail:
 
-Application
-: Categories:  
-  system-development  
-  scientific-education  
-  entertaiment-communication  
-  bussiness-professional
+[Application](#application)
+Categories:
+* system-development  
+* scientific-education  
+* entertaiment-communication  
+* bussiness-professional
 
 Theory
-: Algorithm-function-interface-behavior-verb (computability-complexity)
-: Data-structure-state-attribute-noun (automata-languages, data structures)
+* Algorithm-function-interface-behavior-verb (computability-complexity)
+* Data-structure-state-attribute-noun (automata-languages, data structures)
 
 Stages:  
+[requirements](#req-spec)
 Human1: -requirements> Specification:  
             do(functional)-be(operation-evolution-environment)
             
