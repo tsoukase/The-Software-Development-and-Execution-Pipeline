@@ -43,7 +43,7 @@ Categories (based on application domain):
 do(functional)-be(operational-evolutionary-environmental)
             
 ### <a name="2"></a>2. architecture-design -> Diagrams
-simplicity <- structural (eg class-diagram), behavorial (eg. sequence)      
+simplicity <- structural (eg class-diagram), behavorial (eg. sequence)      
 
 #### Principles:
 * Module: do-one-thing, single-point-of-thuth  
@@ -75,20 +75,29 @@ simplicity <- structural (eg class-diagram), behavorial (eg. sequence)    
 ### <a name="3"></a>3. programm -> Source Code
 readability <- elegant-defensive,error-testing  
 
-#### Lang (syntax+semantics):
+#### Programming Language = syntax+semantics
 * lexical (keywords-literals-ID-comments) + native/libs (types-math-strings-IO-error-net...)
-* [create] Access modifier (space-time/memberof) Type (string-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
-* [read] access-reference Literal/ΙD [eval] Numerical (arithm-logical-relationall) // [update] Assignment [control] Flow(conditional-jump)
+* [create] Access modifier (space-time/memberof) Type (struct-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
+* [read] access-reference Literal/ΙD [eval] NumericOper (arithm-logical-relationall) // [update] Assignment [control] Flow(conditional-jump)
 
 Notes:
-1. The above is the shortest encoded syntax of almost all programming languages
-2. [create] = declaration
-3. create/read/update = C-R-U in compiler and memory, D = garbage collection!
-4. Functional programming uses only 'create', 'read' and 'eval' and discards 'update' and 'control'
-5. Logic programming uses only 'create' and discards everything else
+* The above is the shortest encoded syntax of almost all programming languages
+* In CS, there are only three fundamental operations from which every other is consisted of: CRUD (create, read, update, delete) a value from a memory location, evaluate a numerical formula and control program flow (basically conditional branching and jumping, as the sequential flow is implicit)
+* In programming languages the 'create' is the declaration, the 'read' is the derefencing and 'update' is the assignment. The 'delete' is intuitively the garbage collection, which is ommited in the syntax!
+* Pure functional programming languages use only 'create', 'read' and 'eval' and discard 'update' and 'control'
+* Logic programming languages uses only 'create' and discards everything else
+* Struct and class are meta-types (that is, types that define types), the rest are regular types either native or user defined
+* 'newType' is defined either by 'struct' or 'class' keywords and create a new struct or class respectively
+* Examples:
+  * 'create': `static` (space), TODO (time eg in Rust), `private`, `public` (member-of), `*` (pointer), `[]` (array)
+  * 'read': `*x`, `x[]`, `*x->y` (acc-ref ID), `'hello'` (Literal)
+  * 'eval': `+`, `-`, `||` ...
+  * 'update': `=`
+  * 'control': `if/else`, `goto`
 
 ### <a name="4"></a>4. translation -> Machine Code
 program header-sections-section header
 
 ### <a name="5"></a>5. execution -> Electronic state
 digital -> analog -> physics
+
