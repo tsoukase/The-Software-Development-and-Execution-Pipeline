@@ -13,7 +13,7 @@ The five distinct phases/processes, with six IO-structures piping through each o
 |PHage  | -process>      | Output        | Language     | Processor|  
 |:---:  |:---:           |:---:          |:---:         |:---:     |
 |0      | -              | [Application](#application)|-|-         |  
-|[1](#1)| -requirements> | Specification  | natural      | human    |  
+|[1](#1)| -requirements> | Specification | natural      | human    |  
 |[2](#2)| -architecture> | Diagrams      | ADL/UML      | human    |
 |[3](#3)| -programming>  | SourceCode    | programming  | human    |
 |[4](#4)| -translation>  | MachineCode   | intermediate | machine  |
@@ -63,13 +63,14 @@ Notes:
   * 'graph' and 'IO' interface with a Human
 * The Kernel has two classes of jobs, one static and one dynamic:
   1. the static is to abstract away every hardware device and in the meantime provide data-structures to access and control them
-    * approximately every HW device class corresponds to a kernel subsystem and a main data structure  
+    * approximately every HW device class corresponds to a kernel subsystem and a main data structure
+ 
 |HW      | Subssytem  | Data Struct |  
 |:---:   |:---:       |:---:        |
 |CPU     | Scheduler  | `task`      |
 |Memory  | MMU        | `page`      | 
 |Storage | File System| `inode`     |
-|Network | Net subsys | `packet'    |
+|Network | Net subsys | `packet`    |
 |GPU/IO  | Graph/IO   | ...         |
 
     * the abstraction layers are from the lowest to highest: firmware -> device driver -> logical level -> virtual level -> system call
