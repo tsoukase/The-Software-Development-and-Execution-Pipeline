@@ -22,8 +22,9 @@ The five distinct stages/phases/processes, with six IO-structures piping through
 A short reference to theory.  
 There are two fundamental concepts in mathematics, computers and literaly any human thought:  
 * the static Stand and  
-* the dynamic Change  
-Both succeed each other in that manner: (D) -> (S) -> (D) -> (S) ...  
+* the dynamic Change
+
+They succeed each other in that manner: (D) -> (S) -> (D) -> (S) ...  
 Computer theory studies them in depth giving them the following names:
 * Data-structure-state-attribute-noun (automata-languages, data structures)  
 * Algorithm-function-interface-behavior-verb (computability-complexity)  
@@ -80,10 +81,11 @@ readability <- elegant-defensive,error-testing
 * [read] access-reference Literal/ΙD [eval] Numerical (arithm-logical-relationall) // [update] Assignment [control] Flow(conditional-jump)
 
 Notes:
-1. create = declaration
-2. create/read/update = CRU in memory, D = garbage collection!
-3. Functional programming uses only 'create', 'read' and 'eval' and discards 'update' and 'control')
-4. Logic programming uses only 'create' and discards everything else
+1. The above is the shortest encoded syntax of almost all programming languages
+2. [create] = declaration
+3. create/read/update = C-R-U in compiler and memory, D = garbage collection!
+4. Functional programming uses only 'create', 'read' and 'eval' and discards 'update' and 'control'
+5. Logic programming uses only 'create' and discards everything else
 
 ### <a name="4"></a>4. translation -> Machine Code
 program header-sections-section header
