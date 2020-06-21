@@ -63,8 +63,13 @@ Notes:
   * 'graph' and 'IO' interface with a Human
 * The Kernel has two classes of jobs, one static and one dynamic:
   1. the static is to abstract away every hardware device and in the meantime provide data-structures to access and control them
-    * approximately every HW device class corresponds to a kernel subsystem and a main data structure
- 
+    * approximately every HW device class corresponds to a kernel subsystem and a main data structure (see table below)
+    * the abstraction layers are from the lowest to highest: firmware -> device driver -> logical level -> virtual level -> system call
+    * a relevant job is to provide caches and buffers for read/writes between subsystems (eg Memory <> Storage)
+    * IPC, concurrency, user management and other functionalities (which?) are made possible by using the above data structures
+  2. the dynamic is to schedule the running processes, to respond to interrupts or exceptions and possibly to monitor the whole system function through logging. These functions are considered the only logic that the kernel performs
+* The user (either root or regular) executes binaries/applications and uses libraries while being in an environment (opened files, sockets etc)
+
 |HW      | Subssytem  | Data Struct |  
 |:---:   |:---:       |:---:        |
 |CPU     | Scheduler  | `task`      |
@@ -72,12 +77,6 @@ Notes:
 |Storage | File System| `inode`     |
 |Network | Net subsys | `packet`    |
 |GPU/IO  | Graph/IO   | ...         |
-
-    * the abstraction layers are from the lowest to highest: firmware -> device driver -> logical level -> virtual level -> system call
-    * a relevant job is to provide caches and buffers for read/writes between subsystems (eg Memory <> Storage)
-    * IPC, concurrency, user management and other functionalities (which?) are made possible by using the above data structures
-  2. the dynamic one is to schedule the running processes, to respond to interrupts or exceptions and possibly to monitor the whole system function through logging. These functions are considered the only logic that the kernel performs
-* The user (either root or regular) executes binaries/applications and uses libraries while being in an environment (opened files, sockets etc)
 
 #### System Architecture styles
 
@@ -126,7 +125,7 @@ Notes:
   * 'update': `=`
   * 'eval': `+`, `-`, `||` ...
   * 'control': `if/else`, `goto`
-* Bonus hint about OOP: object orientation is synonymous to synchronous message passing. When Alan Kay [spoke][(https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
+* Bonus hint about OOP: object orientation is synonymous to synchronous message passing. When Alan Kay [spoke](https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
 
 ### <a name="4"></a>Phase 4. translation -> Machine Code
 eg ELF file format: program header-sections-section header
