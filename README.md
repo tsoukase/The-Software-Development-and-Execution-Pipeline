@@ -1,16 +1,16 @@
 # The Software Development and Execution Pipeline
 
-Importand Note: this is an onging work. I am a doctor not a CSist, neither a SEer.  
+**Importand Note: this is an onging work. I am a doctor, not a CSist neither a SEer.**
 > Computer science is mathematics with discrete and finite Data instead of infinite numbers.  
 
 > Software engineering is computer science applied on hardware.
 
-This project aims to present the Software Development (SD) stages as a piped process, from App conception to bare electrons.  
-It consists of the classical Development Lifecycle phases (1-3) and the normal execution on hardware (4-5)
+This project aims to present the Software Development phases as a piped process, from App conception to bare electrons.  
+It consists of the classical Development Lifecycle phases (1-3) and the regular execution on hardware (4-5)
 
-The five distinct stages/phases/processes, with six IO-structures piping through each one, are:  
+The five distinct phases/processes, with six IO-structures piping through each one, are:  
 
-|Stage  | -process>      | Output        | Language     | Processor|  
+|PHage  | -process>      | Output        | Language     | Processor|  
 |:---:  |:---:           |:---:          |:---:         |:---:     |
 |0      | -              | [Application](#application)|-|-         |  
 |[1](#1)| -requirements> | Specification  | natural      | human    |  
@@ -21,7 +21,7 @@ The five distinct stages/phases/processes, with six IO-structures piping through
 
 Almost 90% of the time and effort is devoted to phases 2 and 3. Phases 4 and 5 are the machine's job and 1 is relatively light-weight, albeit very important too.
 
-### 0. Application
+### Phase 0. Application
 The Applications are the primary need to use a computer in the first place.
 App categories based on usage domain:
 * system-development (eg. OS, utilities, network, compilers, GUIs ...)
@@ -29,12 +29,12 @@ App categories based on usage domain:
 * entertaiment-communication  (eg. A-V stuff, games, messenger apps ...)
 * bussiness-professional (eg. office, enterprise, manufacturing, government ...)
 
-### <a name="1"></a>1. requirements -> Specification
+### <a name="1"></a>Phase 1. requirements -> Specification
 Types: functional (do) + operational-evolutionary-environmental (be)
 
 * The steps: inception/elicitation, analysis/negotiation, modeling, specification, validation, management 
 
-### <a name="2"></a>2. architecture-design -> Diagrams
+### <a name="2"></a>Phase 2. architecture-design -> Diagrams
 simplicity <- structural (eg class-diagram), behavorial (eg. sequence)      
 
 #### Design and programming Principles:
@@ -63,7 +63,7 @@ Notes:
   * 'graph' and 'IO' interface with a Human
 * The Kernel has two classes of jobs, one static and one dynamic:
   1. the static is to abstract away every hardware device and in the meantime provide data-structures to access and control them
-    * approximately every HW device class corresponds to a kernel subsystem and a main data structure
+    * approximately every HW device class corresponds to a kernel subsystem and a main data structure  
 |HW      | Subssytem  | Data Struct |  
 |:---:   |:---:       |:---:        |
 |CPU     | Scheduler  | `task`      |
@@ -95,7 +95,7 @@ Example:
 #### Graphics pipeline
 * TODO
 
-### <a name="3"></a>3. programm -> Source Code
+### <a name="3"></a>Phase 3. programm -> Source Code
 Main goal: readability through elegance and defensiveness, error and testing  
 
 #### Programming Language = syntax + semantics
@@ -127,10 +127,10 @@ Notes:
   * 'control': `if/else`, `goto`
 * Bonus hint about OOP: object orientation is synonymous to synchronous message passing. When Alan Kay [spoke][(https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
 
-### <a name="4"></a>4. translation -> Machine Code
+### <a name="4"></a>Phase 4. translation -> Machine Code
 eg ELF file format: program header-sections-section header
 
-### <a name="5"></a>5. execution -> Electronic state
+### <a name="5"></a>Phase 5. execution -> Electronic state
 Electronic state: digital devices -> analog devices -> physics particles  
 
 Note: in phases 4 and 5 we do not have much to say as they are run by the machine
