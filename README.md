@@ -10,14 +10,18 @@ It consists of the classical Development Lifecycle phases (1-3) and the regular 
 
 The five distinct phases/processes, with six IO-structures piping through each one, are:  
 
-|PHage  | -process>      | Output        | Language     | Processor|  
+|Phase  | -process>      | Output        | Language     | Processor|  
 |:---:  |:---:           |:---:          |:---:         |:---:     |
 |0      | -              | [Application](#application)|-|-         |  
-|[1](#1)| -requirements> | Specification | natural      | human    |  
+|[1](#1)| -requirements> | Specification  | natural      | human    |  
 |[2](#2)| -architecture> | Diagrams      | ADL/UML      | human    |
 |[3](#3)| -programming>  | SourceCode    | programming  | human    |
 |[4](#4)| -translation>  | MachineCode   | intermediate | machine  |
 |[5](#5)| -execution>    | Electr state  | VHDL         | machine  |
+
+The process can be seen in two dimensions:
+1. as a succession of process->output phases, where the output of one phase is input for the next  
+2. as an abstaction, where each layer is a specification or declaration and the next one is its implementation
 
 Almost 90% of the time and effort is devoted to phases 2 and 3. Phases 4 and 5 are the machine's job and 1 is relatively light-weight, albeit very important too.
 
@@ -106,15 +110,21 @@ Main goal: readability through elegance and defensiveness, error and testing
 Notes:
 * This is the shortest possible encoded presentation of syntax of almost all programming languages
 * In CS, there are only three fundamental operations from which every other is consisted of:
-  1. CRUD (create, read, update, delete) a value from a memory location
-  2. evaluate a numerical formula and
-  3. control program flow (basically conditional branching and jumping, as the sequential flow is implicit)
-* In the context of programming languages the CRUD operations are:
+  1. CRUD (create, read, update, delete) a value from/to a memory location
+  2. computation of a numerical operation and
+  3. control program flow (sequential as default, conditional branching and jumping)
+* In the context of programming languages:
   * 'create' is the declarations of ID (variables/constants)
-  * 'read' is the return or derefencing of a value
+  * 'read' is the return of a value from memory, call of a function or substitution of a literal
   * 'update' is the assignment operation
-  * 'delete' is the garbage collection (either manual or automatic), which is ommited in the syntax
-* The programming paradigms use different set of operations:
+  * 'delete' is the manual or automatic freeing of memeory, which is ommited in the syntax
+  * 'eval' is the computation of a numerical operation
+  * 'control' is program flow control
+* Also, in PLs:
+  * 'eval' and 'read' constitute expressions
+  * 'update' and 'control' constitute statements
+  
+* The programming paradigms use different sets of operations:
   * imperative PLs use all of the five
   * pure functional PLs use only the 'create', 'read' and 'eval' and discard (or implement indirectly? - explanation needed) 'update' and 'control'
   * logic PLs use only 'create' and discard everything else (which becomes the language translator's job)
