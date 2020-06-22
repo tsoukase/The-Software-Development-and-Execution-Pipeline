@@ -5,12 +5,14 @@ Note: The name '(Theoretical) Computer Science' is wrong as it is not science bu
 
 There are two fundamental concepts in mathematics, computers and literaly any human thought:  
 * the static Information and
-* the dynamic Change
+* the dynamic Change  
 They succeed each other in that  manner: (D) -> (S) -> (D) -> (S) ...  
 
 Computer theory studies them in full depth and, depending on context, gives them the following names:
 * Data, structure, state, attribute, noun
-* Algorithm, function, behavior, interface, verb
-As you are reading here, you are probably knowledgeable about these names :)   
+* Algorithm, function, behavior, interface, verb  
+As you are here, you are probably knowledgeable about these names :)   
+
+It can be said that Data are the Specification or Declaration and algorithms are the implementation.
 
 Main topics are Formal Methods, Automata, Programming Languages, Data Structures, Information Theory, Computability and Complexity
