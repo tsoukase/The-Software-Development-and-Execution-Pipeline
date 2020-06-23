@@ -5,6 +5,13 @@
 
 > Software engineering is computer science applied on hardware.
 
+### An short note about System Design
+
+The fundamental concept of System Design in layers is Abstraction, where each layer abstracts (= removes, hides) the details of the next one in the hiearchy.  
+
+The above layer is the specification which is stated declaratively and composed by data, while the lower layer in the implementation which is composed by data and algorithms.
+
+
 This project aims to present the Software Development phases as a piped process, from App conception to bare electrons.  
 It consists of the classical Development Lifecycle phases (1-3) and the regular execution on hardware (4-5)
 
@@ -74,13 +81,13 @@ Notes:
   2. the dynamic is to schedule the running processes, to respond to interrupts or exceptions and possibly to monitor the whole system function through logging. These functions are considered the only logic that the kernel performs
 * The user (either root or regular) executes binaries/applications and uses libraries while being in an environment (opened files, sockets etc)
 
-|HW      | Subssytem  | Data Struct |  
-|:---:   |:---:       |:---:        |
-|CPU     | Scheduler  | `task`      |
-|Memory  | MMU        | `page`      | 
-|Storage | File System| `inode`     |
-|Network | Net subsys | `packet`    |
-|GPU/IO  | Graph/IO   | ...         |
+|HW      | Subssytem  | Data Structure |  
+|:---:   |:---:       |:---:           |
+|CPU     | Scheduler  | `task`         |
+|Memory  | MMU        | `page`         | 
+|Storage | File System| `inode`        |
+|Network | Net subsys | `packet`       |
+|GPU/IO  | Graph/IO   | ...            |
 
 #### System Architecture styles
 
@@ -105,7 +112,7 @@ Main goal: readability through elegance and defensiveness, error and testing
 #### Programming Language = syntax + semantics
 * lexical elements (keywords-literals-ID-comments) + native/libs (types-math-strings-IO-error-net...)
 * [create] Access modifier (space-time/memberof) Type (struct-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
-* [read] access-reference Literal/ΙD [eval] NumericOp (arithm-logical-relationall) // [update] AssignOp [control] Flow(conditional-jump)
+* [read] access-reference Literal/ΙD [num] NumericOp (arithm-logical-relationall) // [update] AssignOp [control] Flow(conditional-jump)
 
 Notes:
 * This is the shortest possible encoded presentation of syntax of almost all programming languages
@@ -114,16 +121,15 @@ Notes:
   2. computation of a numerical operation and
   3. control program flow (sequential as default, conditional branching and jumping)
 * In the context of programming languages:
-  * 'create' is the declarations of ID (variables/constants)
+  * 'create' is the declaration of IDs (variables/contstants/functions) plus their initialization (with = or {}) with values  
   * 'read' is the return of a value from memory, call of a function or substitution of a literal
-  * 'update' is the assignment operation
+  * 'update' is the reassignment operation of a mutable variable (:=) 
   * 'delete' is the manual or automatic freeing of memeory, which is ommited in the syntax
-  * 'eval' is the computation of a numerical operation
+  * 'num' is the computation of a numerical operation
   * 'control' is program flow control
 * Also, in PLs:
-  * 'eval' and 'read' constitute expressions
-  * 'update' and 'control' constitute statements
-  
+  * 'num' and 'read' constitute expressions which are to be evaluated
+  * 'update' and 'control' constitute statements which are to be executed
 * The programming paradigms use different sets of operations:
   * imperative PLs use all of the five
   * pure functional PLs use only the 'create', 'read' and 'eval' and discard (or implement indirectly? - explanation needed) 'update' and 'control'
@@ -133,9 +139,15 @@ Notes:
   * 'create': `static` (space), ' (time in Rust), `private`, `public` (member-of), `*` (pointer), `[]` (array), myfunc(args) (function)
   * 'read': `*x`, `x[]`, `*x->y` (acc-ref ID), `'hello'` (Literal)
   * 'update': `=`
-  * 'eval': `+`, `-`, `||` ...
+  * 'num': `+`, `-`, `||` ...
   * 'control': `if/else`, `goto`
 * Bonus hint about OOP: object orientation is synonymous to synchronous message passing. When Alan Kay [spoke](https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
+
+|              |Memory access | Execution |  
+|:---:         |:---:         |:---:      |
+|**Both Pdgms**| read         |num        |
+|**Imperative**| update       |control    |
+
 
 ### <a name="4"></a>Phase 4. translation -> Machine Code
 eg ELF file format: program header-sections-section header
@@ -145,3 +157,6 @@ Electronic state: digital devices -> analog devices -> physics particles
 
 Note: in phases 4 and 5 we do not have much to say as they are run by the machine
 
+===
+
+### Please contribute / correct if there is any error or vagueness.
