@@ -13,6 +13,4 @@ Computer theory studies them in full depth and, depending on context, gives them
 * Algorithm, function, behavior, interface, verb  
 As you are here, you are probably knowledgeable about these names :)   
 
-It can be said that Data are the Specification or Declaration and algorithms are the implementation.
-
 Main topics are Formal Methods, Automata, Programming Languages, Data Structures, Information Theory, Computability and Complexity
