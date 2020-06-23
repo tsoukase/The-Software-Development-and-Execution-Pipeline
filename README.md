@@ -5,12 +5,14 @@
 
 > Software engineering is computer science applied on hardware.
 
-### An short note about System Design
+### A short note about System Design
 
 The fundamental concept of System Design in layers is Abstraction, where each layer abstracts (= removes, hides) the details of the next one in the hiearchy.  
 
 The above layer is the specification which is stated declaratively and composed by data, while the lower layer in the implementation which is composed by data and algorithms.
 
+
+### Introduction
 
 This project aims to present the Software Development phases as a piped process, from App conception to bare electrons.  
 It consists of the classical Development Lifecycle phases (1-3) and the regular execution on hardware (4-5)
@@ -106,13 +108,13 @@ Example:
 #### Graphics pipeline
 * TODO
 
-### <a name="3"></a>Phase 3. programm -> Source Code
+### <a name="3"></a>Phase 3. programming -> Source Code
 Main goal: readability through elegance and defensiveness, error and testing  
 
 #### Programming Language = syntax + semantics
 * lexical elements (keywords-literals-ID-comments) + native/libs (types-math-strings-IO-error-net...)
 * [create] Access modifier (space-time/memberof) Type (struct-class / scalar-composite-newType-function()) Reference (pointer-array) ID  
-* [read] access-reference Literal/ΙD [num] NumericOp (arithm-logical-relationall) // [update] AssignOp [control] Flow(conditional-jump)
+* [read] access-reference Literal/ΙD [numer] NumericOp (arithm-logical-relationall) // [update] AssignOp [control] Flow(conditional-jump)
 
 Notes:
 * This is the shortest possible encoded presentation of syntax of almost all programming languages
@@ -125,10 +127,10 @@ Notes:
   * 'read' is the return of a value from memory, call of a function or substitution of a literal
   * 'update' is the reassignment operation of a mutable variable (:=) 
   * 'delete' is the manual or automatic freeing of memeory, which is ommited in the syntax
-  * 'num' is the computation of a numerical operation
+  * 'numer' is the computation of a numerical operation
   * 'control' is program flow control
 * Also, in PLs:
-  * 'num' and 'read' constitute expressions which are to be evaluated
+  * 'numer' and 'read' constitute expressions which are to be evaluated
   * 'update' and 'control' constitute statements which are to be executed
 * The programming paradigms use different sets of operations:
   * imperative PLs use all of the five
@@ -139,14 +141,14 @@ Notes:
   * 'create': `static` (space), ' (time in Rust), `private`, `public` (member-of), `*` (pointer), `[]` (array), myfunc(args) (function)
   * 'read': `*x`, `x[]`, `*x->y` (acc-ref ID), `'hello'` (Literal)
   * 'update': `=`
-  * 'num': `+`, `-`, `||` ...
+  * 'numer': `+`, `-`, `||` ...
   * 'control': `if/else`, `goto`
 * Bonus hint about OOP: object orientation is synonymous to synchronous message passing. When Alan Kay [spoke](https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
 
-|              |Memory access | Execution |  
-|:---:         |:---:         |:---:      |
-|**Both Pdgms**| read         |num        |
-|**Imperative**| update       |control    |
+|                           |Memory access |Execution |  
+|:---:                      |:---:         |:---:     |
+|**Expression - Both Pdgms**| read         | numer    |
+|**Statement  - Imperative**| update       | control  |
 
 
 ### <a name="4"></a>Phase 4. translation -> Machine Code
