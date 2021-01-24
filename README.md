@@ -16,17 +16,17 @@ Each lower layer is the implementation of the higher one and presents a standard
 
 The four (plus 0) distinct phases, with five IO structures piping through each one, are:  
 
-|Phase  | -process>      | Output        | Language     | Machine  |  
-|:---:  |:---:           |:---:          |:---:         |:---:     |
-|0      | -              | [Application](#application)|-|-         |  
-|[1](#1)| -requirements> | Specification | natural      | human    |  
-|[2](#2)| -architecture> | Diagrams      | ADL/UML      | human    |
-|[3](#3)| -coding>       | SourceCode    | programming  | human    |
-|[4](#4)| -execution>    | Electr state  | VHDL         | machine  |
+|Phase | -process>      | Output              | Language     | Machine  |  
+|:---: |:---:           |:---:                |:---:         |:---:     |
+|0     | -              | [Application](#0)   |-             |-         |  
+|1     | -requirements> | [Specification](#1) | natural      | human    |  
+|2     | -architecture> | [Diagrams](#2)      | ADL/UML      | human    |
+|3     | -coding>       | [SourceCode](#3)    | programming  | human    |
+|4     | -execution>    | [Electr state](#4)  | VHDL         | machine  |
 
 Almost 90% of human time and effort is devoted to phases 3 (coding). Phases 1 (requirements) and 2 (architecture) are relatively light-weight, albeit very important too and phase 4 is the machine's job (except when reverse engineering).
 
-### Phase 0. Application
+### <a name="0"></a>Phase 0. Application
 Applications are the primary motive to use a computer in the first place.
 Almost all Apps belong to the following categories based on usage domain:
 * system & development (eg. OS, utilities, network, compilers, GUIs ...)
@@ -35,20 +35,20 @@ Almost all Apps belong to the following categories based on usage domain:
 * bussiness & professional (eg. office, enterprise, manufacturing, government ...)
 
 ### <a name="1"></a>Phase 1. requirements -> Specification
-Types: functional (do) + operational-evolutionary-environmental (be)
+Types: functional ('do's) + operational-evolutionary-environmental ('be's)
 
-* Most important Specs: reli-avail-maintain-port-scal-us-Ability, correct-secur-perform-compliance...
+* Some important Specs are reli-avail-maintain-port-scal-us-Ability and correct-perform-compli-Ance, security...
 * Substeps: inception/elicitation, analysis/negotiation, modeling, specification, validation, management 
 
 ### <a name="2"></a>Phase 2. architecture-design -> Diagrams
-Types: Structural (eg class-diagram), behavorial (eg. sequence). Goal is simplicity
+Types: Structural (eg class-diagram), behavorial (eg. sequence-diagram). Goal is simplicity
 
 #### Design Principles:
 They can be categorized as related to:
 * Modularization: do-one-thing in a single-point-of-truth  
 * Dependency: low Coupling (encapsulate what changes, everything->interface)  
 * Extensibility: associat (composit) > general (inherit), segreg (base:derived=1:1)
-* Message passing (layered,Object,Event,SOA,μ-krn,P2P) vs SharedMemory  (DB,blackb,rule)
+* Distribution: Message passing (layered,Object,Event,SOA,μ-krn,P2P) vs SharedMemory (DB,blackb,rule)
 
 #### Computer design: HW<>Kernel
 * HW: adrMem/blkStor -bus- (cache)<CntlU><ALU/branch> / -network/-graphics/-HID
@@ -78,11 +78,11 @@ Notes:
 |GPU/IO  | Graph/IO   | `drm/kms`      |
 
 
-#### App design
+#### Application design
 * N-tier: Presentation(UI,MV) <> Logic(service,logic,Control) <> Data(DB,log)
-
+Compiler
 * Front-end: -preproc>SCode-lexer>Token -parser>AST -semantic>Graph -generator>IntermRepres  
-* Compiler: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
+* Back-end: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
 
 ### <a name="3"></a>Phase 3. programming -> Source Code
 Goal: readability through elegance, defensiveness, error checking and testing  
@@ -90,49 +90,50 @@ Goal: readability through elegance, defensiveness, error checking and testing
 #### Programming Language = syntax + semantics
 * lexical elements (keywords-literals-IDs-comments) + (non)native libraries (types-math-strings-IO-error-net...)
 * Declar: [create] Access modif (space-time/memberof) Type (struct-class / scalar-compos-newType-function()) Refer (pointer-array) ID  
-* Expr: [read] access-refer Literal/ΙD [numer] NumericOp (arithm-logical-relat) // Statem: [update] AssignOp [control] Flow(condit-jump)
-* Shell: LD=/lib /bin/exec -app=/usr -conf=/etc 2>/var/log -iof=/dev -home=~/. ...
-* The user (root or non) executes binaries/applications and uses libraries while being in an environment (opened files, sockets etc)
+* Expr: [read] access-refer Literal/ΙD [numeric] NumericOp (arithm-logical-relat) // Statem: [update] AssignOp [control] Flow(condit-jump)
+
+The user executes binaries and uses libraries while being in an environment (opened files, sockets etc)
+Shell: LD=/lib /bin/exec -app=/usr -conf=/etc 2>/var/log -iof=/dev -home=~/. ...
 
 Notes:
 * This is the shortest possible, encoded representation of syntax of almost all programming languages
 * In CS, there are only three fundamental operations from which every other is consisted of:
   1. CRUD (create, read, update, delete) a value from/to a memory location
-  2. computation of a numerical operation and
-  3. control program flow (sequential execution, conditional branching and jumping)
+  2. computation of a numerical (arithemtic) operation and
+  3. control program flow (conditional branching and jumping)
 * In the context of programming languages:
-  * 'create' is the declaration of IDs (variables/contstants/functions) plus their initialization (with = or {}) with values  
+  * 'create' is the declaration of IDs (variables/functions) plus their initialization (using =/{}) with a value  
   * 'read' is the return of a value from memory, call of a function or substitution of a literal
   * 'update' is the reassignment operation of a mutable variable (:=) 
-  * 'delete' is the manual or automatic freeing of memeory, which is ommited in the syntax
-  * 'numer' is the computation of a numerical operation
-  * 'control' is program flow control
-* Also, in PrLangs:
-  * 'numeric' and 'read' constitute expressions which are to be evaluated
-  * 'update' and 'control' constitute statements which are to be executed
-* The programming paradigms use different sets of operations:
-  * imperative PLs use all of the five
-  * pure functional PLs use only the 'create', 'read' and 'eval' and discard (or implement indirectly? - explanation needed) 'update' and 'control'
-  * logic PLs use only 'create' and discard everything else (which becomes the language translator's job)
-* `struct` and `class` keywords are not types but define newTypes of struct and class type respectively. The rest (scalar, composite and function) are regular types, either native or user defined
+  * 'delete' is the manual or automatic freeing of memeory (is omitted above)
+  * 'numeric' is the computation of a numerical operation
+  * 'control' is program flow control (conditional branching and jumping)
+* Also:
+  * 'create' and 'delete' are declarations that allocate/free memory
+  * 'numeric' and 'read' constitute expressions that are to be evaluated
+  * 'update' and 'control' constitute statements that are to be executed
+
+|               |Memory access |Execution |  
+|:---:          |:---:         |:---:     |
+|**Expression** | read         | numeric  |
+|**Statement**  | update       | control  |
+
+* Keywords `struct` and `class` are not types but define newTypes of struct and class type respectively. The rest (scalar, composite and function) are regular types, either native or user defined
 * Examples:
   * 'create': `static` (space), ' (time in Rust), `private`, `public` (member-of), `*` (pointer), `[]` (array), myfunc(args) (function)
   * 'read': `*x`, `x[]`, `*x->y` (acc-ref ID), `'hello'` (Literal)
   * 'update': `=`
   * 'numeric': `+`, `-`, `||` ...
   * 'control': `if/else`, `goto`
-* Bonus hint about OOP: object orientation is synonymous to synchronous message passing. When Alan Kay [spoke](https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
-
-|                           |Memory access |Execution |  
-|:---:                      |:---:         |:---:     |
-|**Expression - Both Pdgms**| read         | numeric  |
-|**Statement  - Imperative**| update       | control  |
-
+* Note about OOP: object orientation is synonymous to synchronous message passing. When Alan Kay [spoke](https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
+* The programming paradigms use different sets of operations:
+  * Logic uses only 'create' and omit everything else
+  * Functional uses the above, 'read' and 'numeric'
+  * Imperative uses all of the five OPs
 
 ### <a name="4"></a>Phase 4. execution -> Electronic state
 Electronic state: digital devices -> analog devices -> physics particles  
-
-Note: in phase 4 we do not have much to say as they are run by the machine
+Note: here we do not have much to say as they are run by the machine
 
 ===
 
