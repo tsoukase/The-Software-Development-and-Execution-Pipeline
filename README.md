@@ -75,12 +75,12 @@ Notes:
 |Memory  | MMU        | `page`         | 
 |Storage | File System| `inode`        |
 |Network | Net subsys | `packet`       |
-|GPU/IO  | Graph/IO   | `drm/kms`      |
+|GPU     | Graph      | `drm/kms`      |
 
 
 #### Application design
-* N-tier: Presentation(UI,MV) <> Logic(service,logic,Control) <> Data(DB,log)
-Compiler
+* N-tier: Presentation(UI,MV) <> Logic(service,logic,Control) <> Data(DB,log)  
+Compiler:
 * Front-end: -preproc>SCode-lexer>Token -parser>AST -semantic>Graph -generator>IntermRepres  
 * Back-end: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
 
@@ -119,7 +119,7 @@ Notes:
 * Examples:
   * 'create': `static` (space), ' (time in Rust), `private`, `public` (member-of), `*` (pointer), `[]` (array), myfunc(args) (function)
   * 'read': `*x`, `x[]`, `*x->y` (acc-ref ID), `'hello'` (Literal)
-  * 'update': `=`
+  * 'update': `:=`
   * 'numeric': `+`, `-`, `||` ...
   * 'control': `if/else`, `goto`
 * Note about OOP: object orientation is synonymous to synchronous message passing. When Alan Kay [spoke](https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
