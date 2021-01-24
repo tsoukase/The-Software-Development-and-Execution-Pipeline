@@ -16,13 +16,13 @@ Each lower layer is the implementation of the higher one and presents a standard
 
 The four (plus 0) distinct phases, with five IO structures piping through each one, are:  
 
-|Phase | -process>      | Output              | Language     | Machine  |  
-|:---: |:---:           |:---:                |:---:         |:---:     |
-|0     | -              | [Application](#0)   |-             |-         |  
-|1     | -requirements> | [Specification](#1) | natural      | human    |  
-|2     | -architecture> | [Diagrams](#2)      | ADL/UML      | human    |
-|3     | -coding>       | [SourceCode](#3)    | programming  | human    |
-|4     | -execution>    | [Electr state](#4)  | VHDL         | machine  |
+|Phase   | -process>      | Output        | Language     | Machine  |  
+|:---:   |:---:           |:---:          |:---:         |:---:     |
+|[0](#0) | -              | Application   |-             |-         |  
+|[1](#1) | -requirements> | Specification | natural      | human    |  
+|[2](#2) | -architecture> | Diagrams      | ADL/UML      | human    |
+|[3](#3) | -coding>       | SourceCode    | programming  | human    |
+|[4](#4) | -execution>    | Electr state  | VHDL         | machine  |
 
 Almost 90% of human time and effort is devoted to phases 3 (coding). Phases 1 (requirements) and 2 (architecture) are relatively light-weight, albeit very important too and phase 4 is the machine's job (except when reverse engineering).
 
@@ -88,12 +88,9 @@ Compiler
 Goal: readability through elegance, defensiveness, error checking and testing  
 
 #### Programming Language = syntax + semantics
-* lexical elements (keywords-literals-IDs-comments) + (non)native libraries (types-math-strings-IO-error-net...)
+Lexical elements (keywords-literals-IDs-comments) + (non)native libraries (types-math-strings-IO-error-net...)
 * Declar: [create] Access modif (space-time/memberof) Type (struct-class / scalar-compos-newType-function()) Refer (pointer-array) ID  
 * Expr: [read] access-refer Literal/ΙD [numeric] NumericOp (arithm-logical-relat) // Statem: [update] AssignOp [control] Flow(condit-jump)
-
-The user executes binaries and uses libraries while being in an environment (opened files, sockets etc)
-Shell: LD=/lib /bin/exec -app=/usr -conf=/etc 2>/var/log -iof=/dev -home=~/. ...
 
 Notes:
 * This is the shortest possible, encoded representation of syntax of almost all programming languages
