@@ -1,14 +1,71 @@
-# The Software Development and Execution Pipeline
+# Systems, Computers and Software
 
 **Note: this is an onging, amateur, hobby project. I am a Doctor, not a CSist.**
 
 ### Introduction
 
+Any human endeavour can be modeled by a system and any system has exactly two dimensions: its meaning and its description. As a language is always neccesary to communicate anything, they correspond to semantics and syntax.
+
+### Meaning and Semantics
+
+Every System is composed and can be described with two concepts, the static structure and the dynamic operations. There are many names for each, depending to the abstraction of the system they refer, respectively:
+
 The fundamental concept of every System Design is Abstraction in layers, where each layer abstracts (= removes, hides) the details of the lower one in the hiearchy.
 
-This project aims to present the Software Development and Execution phases as a piped process, from App conception to bare electrons.  
+| Abst-Level |STATIC      | DYNAMIC    | 
+|:---:       |:---:       |:---:       |
+|Physics     | Space      | Time       |
+|Philosophy  | Form       | Flow       |  
+|Design      | Structure  | Function   | 
+|Design      | State      | Bahavior   | 
+|Nat-Lang    | Noun       | Verb       | 
+|Nat-Lang    | Be         | Do         | 
+|Req-Analys  | Specificat | Implement  | 
+|Design      | Information| Process    | 
+|Program     | Data       | Algorithm  | 
+|Program     | Parameter  | Operation  | 
+|Program     | Message    | Actor      |
+|CPU         | Memory     | Machine    | 
+|CPU         | Register   | Instruction| 
 
-It consists of the classical SW Development Lifecycle (phases 1-3) and the its execution on hardware (phase 4).
+#### Computer design: HW<>Kernel
+0.Random Access Machince: gate-μarch- (Cnt/AL/Br> -bus -Reg/Ram/Disk -net/gra/hid)
+  Kernel: -fw/drv-log-virt<Sched/Irq/Mon>sysc- (Task-page-inod-pck-tty)
+
+Notes:
+* HW lays out the usual computer architecture:
+  * <CntlU><ALU/branch> is the CPU (or GPU) with registers
+  * - symbolizes movement of data through a bus
+  * volatile Memory (RAM) is accessed by addresses and persistent Storage by blocks
+  * 'network' interfaces with other computers' network
+  * 'graphics' and 'HID' interface with a Human
+* The Kernel has two classes of jobs, one static and one dynamic:
+  1. the static is to abstract every hardware device and provide data-structures to access and control each one
+    * every important HW device class corresponds to a kernel subsystem and a main data structure (see table below)
+    * the abstraction layers are: firmware (ISA for CPU) -> device driver -> logical level -> virtual level -> system call
+    * there are caches and buffers for read/writes between subsystems
+    * all functionalities (eg IPC, concurrency, user management) are performed by using the above data structures
+  2. the dynamic functions (which are the only kernel logic) are to schedule the running processes, to respond to interrupts or exceptions and to monitor/log the system function.
+ 
+|HW      | Subssytem  | Data Structure |  
+|:---:   |:---:       |:---:           |
+|CPU     | Scheduler  | `task`         |
+|Memory  | MMU        | `page`         | 
+|Storage | File System| `inode`        |
+|Network | Net subsys | `packet`       |
+|GPU     | Graph      | `drm/kms`      |
+
+
+#### Application design
+* N-tier: Presentation(UI,MV) <> Logic(service,logic,Control) <> Data(DB,log)  
+Compiler:
+* Front-end: -preproc>SCode-lexer>Token -parser>AST -semantic>Graph -generator>IntermRepres  
+* Back-end: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
+
+ 
+### Description and Syntax
+
+The classical SW Development Lifecycle (phases 1-3) and the its execution on hardware (phase 4).
 
 Each higher layer is a specification which is stated declaratively and abstracts the lower.
 
@@ -16,13 +73,12 @@ Each lower layer is the implementation of the higher one and presents a standard
 
 The four (plus 0) distinct phases, with five IO structures piping through each one, are:  
 
-|Phase   | -process>      | Output        | Language     | Machine  |  
-|:---:   |:---:           |:---:          |:---:         |:---:     |
-|[0](#0) | -              | Application   |-             |-         |  
-|[1](#1) | -requirements> | Specification | natural      | human    |  
-|[2](#2) | -architecture> | Diagrams      | ADL/UML      | human    |
-|[3](#3) | -coding>       | SourceCode    | programming  | human    |
-|[4](#4) | -execution>    | Electr state  | VHDL         | machine  |
+|Phase   | -process>      | Output        | Language     |  
+|:---:   |:---:           |:---:          |:---:         |
+|[0](#0) | -              | Application   |-             |  
+|[1](#1) | -requirements> | Specification | natural      |  
+|[2](#2) | -architecture> | Diagrams      | ADL/UML      |
+|[3](#3) | -coding>       | SourceCode    | programming  |
 
 Almost 90% of human time and effort is devoted to phases 3 (coding). Phases 1 (requirements) and 2 (architecture) are relatively light-weight, albeit very important too and phase 4 is the machine's job (except when reverse engineering).
 
@@ -49,40 +105,6 @@ They can be categorized as related to:
 * Dependency: low Coupling (encapsulate what changes, everything->interface)  
 * Extensibility: associat (composit) > general (inherit), segreg (base:derived=1:1)
 * Distribution: Message passing (layered,Object,Event,SOA,μ-krn,P2P) vs SharedMemory (DB,blackb,rule)
-
-#### Computer design: HW<>Kernel
-* HW: adrMem/blkStor -bus- (cache)<CntlU><ALU/branch> / -network/-graphics/-HID
-* Kern: -isa/firmwdriver-logic-virtual:Task(Page-Inod-Pack)[buff-cch]- Sched/Irq/Monit -sysc<>
-
-Notes:
-* HW lays out the usual computer architecture:
-  * <CntlU><ALU/branch> is the CPU (or GPU) with registers
-  * - symbolizes movement of data through a bus
-  * volatile Memory (REM) is accessed by addresses and persistent Storage by blocks
-  * 'network' interfaces with other computers' network
-  * 'graphics' and 'HID' interface with a Human
-* The Kernel has two classes of jobs, one static and one dynamic:
-  1. the static is to abstract every hardware device and provide data-structures to access and control each one
-    * every important HW device class corresponds to a kernel subsystem and a main data structure (see table below)
-    * the abstraction layers are: firmware (ISA for CPU) -> device driver -> logical level -> virtual level -> system call
-    * there are caches and buffers for read/writes between subsystems
-    * all functionalities (eg IPC, concurrency, user management) are performed by using the above data structures
-  2. the dynamic functions (which are the only kernel logic) are to schedule the running processes, to respond to interrupts or exceptions and to monitor/log the system function.
- 
-|HW      | Subssytem  | Data Structure |  
-|:---:   |:---:       |:---:           |
-|CPU     | Scheduler  | `task`         |
-|Memory  | MMU        | `page`         | 
-|Storage | File System| `inode`        |
-|Network | Net subsys | `packet`       |
-|GPU     | Graph      | `drm/kms`      |
-
-
-#### Application design
-* N-tier: Presentation(UI,MV) <> Logic(service,logic,Control) <> Data(DB,log)  
-Compiler:
-* Front-end: -preproc>SCode-lexer>Token -parser>AST -semantic>Graph -generator>IntermRepres  
-* Back-end: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
 
 ### <a name="3"></a>Phase 3. programming -> Source Code
 Goal: readability through elegance, defensiveness, error checking and testing  
@@ -127,10 +149,6 @@ Notes:
   * Logic uses only 'create' and omit everything else
   * Functional uses the above, 'read' and 'numeric'
   * Imperative uses all of the five OPs
-
-### <a name="4"></a>Phase 4. execution -> Electronic state
-Electronic state: digital devices -> analog devices -> physics particles  
-Note: here we do not have much to say as they are run by the machine
 
 ===
 
