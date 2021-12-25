@@ -54,9 +54,9 @@ They can be categorized as related to:
 
 ### Computer Machine Design
 
-Basic arch: <ProcU:cntl/al/br> -Mem:reg/ram/disk -Com:bus-net-graph-hum...
+#### Arch: <ProcU:cntl/al/br> -Mem:reg/ram/disk -Com:bus-net-graph-hum...
 
-Layers: (HW) gate-μarch- (KRN) fw/drvr-logic-virtual<Sched/Irq/Mon>sysc-
+#### Layers: (HW) gate-μarch- (KRN) fw/drvr-logic-virtual<Sched/Irq/Mon>sysc-
 
 Notes:
 * HW lays out the usual computer architecture:
@@ -73,30 +73,29 @@ Notes:
     * all functionalities (eg IPC, concurrency, user management) are performed by using the above data structures
   * the dynamic functions (which are the only kernel logic) are to schedule the running processes, to respond to interrupts or exceptions and to monitor/log the system function.
  
-|HW      | Subssytem  | Data Struc |  
-|:---:   |:---:       |:---:       |
-|CPU     | Scheduler  | `task`     |
-|Memory  | MMU        | `page`     | 
-|Storage | File System| `inode`    |
-|Network | Net subsys | `packet`   |
-|GPU     | Graph      | `drm/kms`  |
+|HW      | Subssytem   | Data Struc |  
+|:---:   |:---:        |:---:       |
+|CPU     | Scheduler   | `task`     |
+|Memory  | MMU         | `page`     | 
+|Storage | File System | `inode`    |
+|Network | Net subsys  | `packet`   |
+|GPU     | Graphics    | `drm/kms`  |
 
-Compiler Design:
+#### Compiler Design:
 * Front-end: -preproc>SCode-lexer>Token -parser>AST -semantic>Graph -generator>IntermRepres  
 * Back-end: -instructionSelect-registerAlloc-instrSchedul>AsmCode -asm>ObjCode -link>MachineCode  
 
-App Design:
+#### App Design:
 * N-tier: Server(Cntl/logic)<> Pres(front/MV/UI/client), Persist(back/no-SQL/log)
 
 
 ### <a name="3"></a>3. Programming -> Source Code
-Goal: readability through elegance, defensiveness, error checking and testing  
 
 Lexical (keywords-literals-IDs-comments) + (non)native Libraries (types-math-strings-IO-error-net...)
 
-* Declaration [assign] Access mod (space-time/memberof) Type (primitiv-function X array-group) (pntr) KEY := VAL
-* Expression: [call] NumOper (ari-log-rel), Cond (if), access-refer KEY/VAL
-* Statement: [update] reass,jmp (del,term)
+#### Declaration [assign] Access mod (space-time/memberof) Type (primitiv-function X array-group) (pntr) KEY := VAL
+#### Expression: [call] NumOper (ari-log-rel), Cond (if), access-refer KEY/VAL
+#### Statement: [update] reass,jmp (del,term)
 
 Notes:
 * The above is the shortest possible, encoded representation of syntax of almost all programming languages
@@ -114,7 +113,7 @@ Notes:
   * 'update' is the change of a mutable variable (either a variable or program pointer which leads to a jump) 
   * implicit update ops are the deletion of a variable or the return from a function
 
-* Types:
+* Data Types:
   * Primitive and function are regular types, either native or user defined.
   * Group can be either `struct` or `class` that define newTypes of struct and class respectively. 
 * Note: popular Object Orientation is synonymous to synchronous message passing. When Alan Kay [spoke](https://news.ycombinator.com/item?id=11966570) about message passing he had ment the asynchronous one, which is the Actor model.     
